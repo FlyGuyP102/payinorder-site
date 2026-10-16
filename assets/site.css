@@ -239,3 +239,7 @@ details p { color: var(--muted); padding-bottom: var(--s5); margin: 0; }
   .btn:hover, .btn:active { transform: none; }
   .example, .shot { transform: none !important; }
 }
+
+.signup-error { color: #8a5a00; background: var(--amber-soft); border-radius: var(--radius-sm); padding: var(--s3) var(--s4); font-size: 14px; line-height: 1.5; margin: 0 0 var(--s3); }
+.signup-error:empty { display: none; }
+.btn:disabled { opacity: .7; cursor: progress; transform: none; }

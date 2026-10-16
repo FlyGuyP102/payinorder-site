@@ -28,8 +28,34 @@
     var c = form.querySelector('[name="fields[utm_campaign]"]');
     if (s) s.value = source;
     if (c) c.value = campaign;
-    form.addEventListener("submit", function () {
+    form.addEventListener("submit", function (event) {
       try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: "signup-" + source, title: "Signup", event: true }); } catch (e) {}
+      if (!window.fetch || form.dataset.sending) return; // old browser: normal form post to Kit
+      event.preventDefault();
+      var button = form.querySelector('button[type="submit"]');
+      var label = button.textContent;
+      var note = form.querySelector(".signup-error") || form.insertBefore(document.createElement("p"), button);
+      note.className = "signup-error";
+      note.setAttribute("role", "alert");
+      note.textContent = "";
+      form.dataset.sending = "1";
+      button.disabled = true;
+      button.textContent = "Sending...";
+      fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data && data.status === "success") { location.href = "/thanks/"; return; }
+          var msg = data && data.errors && data.errors.messages && data.errors.messages[0];
+          throw new Error(msg || "Something went wrong.");
+        })
+        .catch(function (err) {
+          delete form.dataset.sending;
+          button.disabled = false;
+          button.textContent = label;
+          var m = err && err.message && err.message !== "Failed to fetch" ? err.message.replace(/[.!?]?$/, ". ") : "";
+          note.textContent = m +
+            "Please check your email address and try again, or write to hello@payinorder.com.";
+        });
     });
   });
 })();
