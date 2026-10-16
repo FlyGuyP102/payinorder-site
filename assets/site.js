@@ -53,9 +53,11 @@
           button.disabled = false;
           button.textContent = label;
           var raw = err && err.message && err.message !== "Failed to fetch" ? err.message : "";
-          if (/quarantin|rate|too many|spam/i.test(raw)) {
-            // Kit's spam guard blocks a network after many signups; it isn't the visitor's typo.
-            note.textContent = "We couldn't sign you up from this network right now. Please try again later, or from mobile data, or write to hello@payinorder.com.";
+          if (/quarantin|captcha|robot|rate|too many|spam/i.test(raw)) {
+            // Kit's bot check: its own page can show the "Not a robot" challenge, so post the form there.
+            note.textContent = "One quick check: we're sending you to our email provider to confirm you're not a robot...";
+            form.dataset.sending = "1";
+            setTimeout(function () { HTMLFormElement.prototype.submit.call(form); }, 900);
           } else {
             note.textContent = (raw ? raw.replace(/[.!?]?$/, ". ") : "") +
               "Please check your email address and try again, or write to hello@payinorder.com.";
