@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pay In Order | Give your next paycheck a plan</title>
+  <meta name="description" content="A simple payday routine: cover your bills first, set money aside for what's coming, then see what's actually yours to spend. Get the free Next Paycheck Checklist.">
+  <link rel="canonical" href="https://payinorder.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://payinorder.com/">
+  <meta property="og:title" content="Give your next paycheck a plan">
+  <meta property="og:description" content="Bills first. Future costs next. Then spend without guessing. Free one-page Next Paycheck Checklist.">
+  <meta property="og:image" content="https://payinorder.com/assets/img/workbook-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#11233F">
+  <link rel="icon" href="/assets/img/pio_mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script data-goatcounter="https://payinorder.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="/" aria-label="Pay In Order home">
+        <img src="/assets/img/pio_mark.svg" alt="" width="32" height="32">
+        <span>Pay <em>In</em> Order</span>
+      </a>
+      <a class="btn btn-small" href="#get-checklist">Free checklist</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">For people with a steady paycheck</p>
+          <h1 id="hero-title">Give your next paycheck a <span class="accent">plan.</span></h1>
+          <p class="lede">Bills first. Future costs next. Then spend without guessing.</p>
+
+          <form class="signup card" id="get-checklist" method="post" action="https://app.kit.com/forms/10043228/subscriptions">
+            <h2 class="signup-title">Get the free <em>Next Paycheck Checklist</em></h2>
+            <p class="signup-body">Five steps to cover your bills, plan what's coming, and see what's actually yours to spend. Plus <strong>Payday Notes</strong>, a short weekly email with one practical payday idea.</p>
+            <div class="fields">
+              <label class="field">
+                <span>First name <small>(optional)</small></span>
+                <input type="text" name="fields[first_name]" autocomplete="given-name">
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input type="email" name="email_address" autocomplete="email" required inputmode="email">
+              </label>
+            </div>
+            <input type="hidden" name="fields[utm_source]" value="direct">
+            <input type="hidden" name="fields[utm_campaign]" value="">
+            <button class="btn btn-wide" type="submit">Send me the free checklist</button>
+            <p class="consent">Send me the free checklist and the weekly Payday Notes newsletter from Pay In Order. I can unsubscribe at any time. <a href="/privacy/">Privacy</a></p>
+          </form>
+        </div>
+
+        <aside class="example card card-float" aria-label="Hypothetical payday example">
+          <p class="example-tag">Example payday · hypothetical numbers</p>
+          <ol class="ledger">
+            <li><span>Cleared (take-home + left over)</span><b>$2,500</b></li>
+            <li><span>Bills and set-asides</span><b>−$1,020</b></li>
+            <li><span>Future costs</span><b>−$120</b></li>
+            <li><span>Groceries, transport, essentials</span><b>−$300</b></li>
+            <li><span>Savings and cushion</span><b>−$200</b></li>
+          </ol>
+          <div class="room">
+            <span>Spending room</span>
+            <strong>$860</strong>
+            <small>About $61 a day for the next 14 days</small>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <p class="eyebrow eyebrow-dark">How it works</p>
+        <h2 id="how-title">The same short routine, every payday.</h2>
+        <ol class="steps">
+          <li class="card">
+            <span class="step-num">1</span>
+            <h3>Start with what cleared</h3>
+            <p>Your real take-home pay, plus any money that isn't already set aside. Not your salary, not pending charges.</p>
+          </li>
+          <li class="card">
+            <span class="step-num">2</span>
+            <h3>Cover the bills first</h3>
+            <p>Including part of a bigger bill that's due after your next payday, like rent on the 1st.</p>
+          </li>
+          <li class="card">
+            <span class="step-num">3</span>
+            <h3>See your spending room</h3>
+            <p>After essentials and savings, one clear number until your next payday. If it doesn't fit, you see the gap before you spend.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="try" aria-labelledby="try-title">
+      <div class="wrap">
+        <p class="eyebrow eyebrow-dark">Try the math</p>
+        <h2 id="try-title">What's left from your next paycheck?</h2>
+        <p class="section-lede">Start with the take-home pay that actually cleared. Nothing is saved or sent anywhere.</p>
+        <div class="calc">
+          <form id="calc" class="card calc-form" autocomplete="off">
+            <label class="field"><span>Take-home pay</span><input name="takeHome" inputmode="decimal" value="2400"></label>
+            <label class="field"><span>Left over</span><input name="leftover" inputmode="decimal" value="100"></label>
+            <label class="field"><span>Bills &amp; set-asides</span><input name="bills" inputmode="decimal" value="1020"></label>
+            <label class="field"><span>Future costs</span><input name="future" inputmode="decimal" value="120"></label>
+            <label class="field"><span>Essentials</span><input name="essentials" inputmode="decimal" value="300"></label>
+            <label class="field"><span>Savings &amp; cushion</span><input name="savings" inputmode="decimal" value="200"></label>
+            <label class="field field-days"><span>Days until payday</span><input name="days" inputmode="numeric" value="14"></label>
+          </form>
+          <div id="calc-out" class="calc-out card card-float" aria-live="polite">
+            <span data-label>Your spending room</span>
+            <strong data-room>$860</strong>
+            <small data-perday>About $61.43 a day until payday</small>
+            <p>The order matters more than the numbers: what cleared, then bills, then everything you've planned. What's left is yours to spend.</p>
+            <a class="btn btn-light" href="#get-checklist">Get the free checklist</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="checklist" aria-labelledby="checklist-title">
+      <div class="wrap split">
+        <figure class="shot">
+          <picture>
+            <source srcset="/assets/img/checklist.webp" type="image/webp">
+            <img src="/assets/img/checklist.jpg" alt="The one-page Next Paycheck Checklist: five numbered steps from starting cash to spending room" width="880" height="914" loading="lazy">
+          </picture>
+        </figure>
+        <div>
+          <p class="eyebrow eyebrow-dark">Free · one page</p>
+          <h2 id="checklist-title">Before you spend your next paycheck, give it a plan.</h2>
+          <ul class="ticks">
+            <li>Five steps, about ten minutes, on the day you get paid</li>
+            <li>Catches the bill that's due after your next payday</li>
+            <li>Shows a shortfall early, before you spend</li>
+            <li>Print it or fill it in on your phone</li>
+          </ul>
+          <form class="signup signup-inline" method="post" action="https://app.kit.com/forms/10043228/subscriptions">
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="email_address" autocomplete="email" required inputmode="email">
+            </label>
+            <input type="hidden" name="fields[utm_source]" value="direct">
+            <input type="hidden" name="fields[utm_campaign]" value="">
+            <button class="btn" type="submit">Send me the free checklist</button>
+            <p class="consent">Send me the free checklist and the weekly Payday Notes newsletter from Pay In Order. I can unsubscribe at any time. <a href="/privacy/">Privacy</a></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-navy" id="workbook" aria-labelledby="workbook-title">
+      <div class="wrap split split-rev">
+        <div>
+          <p class="eyebrow">Want the math done for you?</p>
+          <h2 id="workbook-title">The Pay In Order Starter Kit</h2>
+          <p>A payday budgeting workbook that runs every step of the checklist for you, in <strong>Google Sheets or Excel</strong>.</p>
+          <ul class="ticks ticks-light">
+            <li>Payday tab: your spending room and a next pay date that fills itself in</li>
+            <li>Bills with status at a glance, plus set-asides for later bills</li>
+            <li>Future costs spread across your paychecks, with progress bars</li>
+            <li>Spending log and a dashboard</li>
+            <li>A filled-in example, a Start Here page and a customer guide</li>
+          </ul>
+          <p class="price"><strong>$19</strong> founding price, one-time. No subscription, no bank connection.</p>
+          <a class="btn btn-light" href="https://payhip.com/b/765IW">See the Starter Kit</a>
+          <p class="fine">Founding price for our first customers, then $29. 14-day refund.</p>
+        </div>
+        <div class="gallery">
+          <picture>
+            <source srcset="/assets/img/workbook-payday.webp" type="image/webp">
+            <img class="card-float" src="/assets/img/workbook-payday.jpg" alt="Workbook Payday tab showing one number for this pay period: your spending room" width="1200" height="900" loading="lazy">
+          </picture>
+          <picture>
+            <source srcset="/assets/img/workbook-future.webp" type="image/webp">
+            <img class="card-float" src="/assets/img/workbook-future.jpg" alt="Workbook Future costs tab spreading a $600 cost across paychecks with progress bars" width="1200" height="900" loading="lazy">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap narrow">
+        <h2 id="faq-title">Questions</h2>
+        <details>
+          <summary>Does it connect to my bank?</summary>
+          <p>No. You type in your numbers on payday. Nothing to sync, no logins, and your numbers stay with you.</p>
+        </details>
+        <details>
+          <summary>Is the checklist really free?</summary>
+          <p>Yes. You get the one-page checklist by email, plus Payday Notes once a week. Unsubscribe any time with one click.</p>
+        </details>
+        <details>
+          <summary>Do I need Excel for the workbook?</summary>
+          <p>No. It works in Google Sheets (free with a Google account) or Excel. You get both.</p>
+        </details>
+        <details>
+          <summary>I get paid weekly, every two weeks, twice a month or monthly. Will it work?</summary>
+          <p>Yes. The routine is the same for any pay schedule; only the number of days until your next payday changes.</p>
+        </details>
+        <details>
+          <summary>Is this financial advice?</summary>
+          <p>No. Pay In Order provides general budgeting education and tools. Every example uses hypothetical numbers.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand brand-light" href="/">
+        <img src="/assets/img/pio_mark.svg" alt="" width="28" height="28">
+        <span>Pay <em>In</em> Order</span>
+      </a>
+      <p>Pay In Order provides general budgeting education and tools. It is not financial, tax, legal or investment advice. Examples are hypothetical. Results depend on your income, expenses and decisions.</p>
+      <p class="footer-links"><a href="mailto:hello@payinorder.com">hello@payinorder.com</a> · <a href="/privacy/">Privacy</a> · © 2026 Pay In Order</p>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { bindCalculator } from "/assets/calc.js";
+    bindCalculator(document.querySelector("#calc"), document.querySelector("#calc-out"));
+  </script>
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>

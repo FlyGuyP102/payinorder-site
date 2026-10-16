@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#11233F"/>
+  <g font-family="Segoe UI, Inter, Arial, sans-serif" font-weight="800" font-size="190" letter-spacing="-6">
+    <text x="250" y="420" fill="#FFFFFF">Pay</text>
+    <text x="250" y="600" fill="#D9F6EC">In</text>
+    <text x="250" y="780" fill="#FFFFFF">Order</text>
+  </g>
+  <rect x="200" y="290" width="22" height="500" rx="11" fill="#2458E8"/>
+</svg>
