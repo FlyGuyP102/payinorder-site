@@ -1,9 +1,17 @@
 // Fills the hidden traffic-source fields on every signup form and counts signups in GoatCounter.
 // The forms post to Kit on their own; nothing here is needed for a signup to work.
+// GoatCounter events (only the cleaned source/campaign tags are sent, never the email or name):
+//   signup-attempt/<source>             the button was pressed (before Kit answers)
+//   signup-accepted/<source>/<campaign> Kit accepted the form. NOT an email confirmation: Kit is the truth for that
+//   signup-kitcheck/<source>            handed to Kit's own page for its robot check (outcome unknown here)
 (function () {
   var SOURCES = { "tiktok.com": "tiktok", "youtube.com": "youtube", "youtu.be": "youtube",
     "instagram.com": "instagram", "pinterest.com": "pinterest", "pin.it": "pinterest",
     "facebook.com": "facebook", "google.": "google" };
+
+  function track(path, title) {  // never throws: tracking must not get in the way of a signup
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: path, title: title, event: true }); } catch (e) {}
+  }
 
   function clean(v) { return String(v || "").toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 40); }
 
@@ -29,7 +37,7 @@
     if (s) s.value = source;
     if (c) c.value = campaign;
     form.addEventListener("submit", function (event) {
-      try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: "signup-" + source, title: "Signup", event: true }); } catch (e) {}
+      track("signup-attempt/" + source, "Signup attempt");
       if (!window.fetch || form.dataset.sending) return; // old browser: normal form post to Kit
       event.preventDefault();
       var button = form.querySelector('button[type="submit"]');
@@ -44,7 +52,12 @@
       fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
         .then(function (r) { return r.json(); })
         .then(function (data) {
-          if (data && data.status === "success") { location.href = "/thanks/"; return; }
+          if (data && data.status === "success") {
+            track("signup-accepted/" + source + "/" + (campaign || "none"), "Signup accepted by Kit");
+            // Short pause so the count can leave before the page changes; the redirect happens regardless.
+            setTimeout(function () { location.href = "/thanks/"; }, 300);
+            return;
+          }
           var msg = data && data.errors && data.errors.messages && data.errors.messages[0];
           throw new Error(msg || "Something went wrong.");
         })
@@ -56,6 +69,7 @@
           if (/quarantin|captcha|robot|rate|too many|spam/i.test(raw)) {
             // Kit's bot check: its own page can show the "Not a robot" challenge, so post the form there.
             note.textContent = "One quick check: we're sending you to our email provider to confirm you're not a robot...";
+            track("signup-kitcheck/" + source, "Signup sent to Kit robot check");
             form.dataset.sending = "1";
             setTimeout(function () { HTMLFormElement.prototype.submit.call(form); }, 900);
           } else {
